@@ -2,6 +2,7 @@ import reflex as rx
 from front_end.components.navbar import navbar # import the
 from front_end.views.header.header import header
 from front_end.views.links.links import links   
+from front_end.components.footer import footer
 
 class State(rx.State):
     pass 
@@ -11,6 +12,7 @@ def index() -> rx.Component:
         navbar(),
         header(),
         links(),
+        footer(),
         align="center",
         justify="center",
         display="flex",
