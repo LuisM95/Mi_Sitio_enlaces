@@ -1,7 +1,11 @@
 import reflex as rx
+import front_end.constants as const
+
 from front_end.components.link_icon import link_icon
 from front_end.styles.styles import Size as Size
 from front_end.components.info_text import info_text
+from front_end.styles.colors import TextColor as TextColor
+from front_end.styles.colors import Color as Color
 
 def header() -> rx.Component:
     return rx.vstack(
@@ -10,19 +14,28 @@ def header() -> rx.Component:
             rx.vstack(
                 rx.heading(
                     "Luis Martel",
-                    size='7'
+                    size='4',
+                    color = TextColor.HEADER.value
                     ),
                 rx.text(
                     "@Kikitho95",
-                    margin_top='0px !important',
+                    margin_top = Size.ZERO.value ,
+                    color = TextColor.BODY.value
                     ),
                     rx.hstack(
-                        link_icon("https://x.com/Kikitho95"),
-                        link_icon("https://github.com/LuisM95")
+                        link_icon(
+                            const.TWITTER_X_URL,
+                            "/assets/icons/square-x-twitter.svg"
+                            ),
+                        link_icon(
+                            const.GITHUB_URL,
+                            "/square-github.svg"
+                            ),
+                            spacing='3'
                     ),
                     align_items='start',
             ),        
-            spacing=Size.DEFAULT.value,
+            spacing='5',
         ),
         rx.flex(
             info_text("+3", " Años como Autodidacta!"),
@@ -32,10 +45,12 @@ def header() -> rx.Component:
             info_text("+3", " Años como Autodidacta!"),
             width='100%'
         ),
-        rx.text("""Soy Luis Martel Estudiante de Software, soy un estudiante apasionado por el mundo de la tecnología,
-                 actualmente cursando una carrera técnica en servicios en la nube.
-                 Estoy constantemente aprendiendo y creciendo."""
-                ),
-            spacing=Size.DEFAULT.value,
+        rx.text(
+                """Soy Luis Martel Estudiante de Software, soy un estudiante apasionado por el mundo de la tecnología,
+                actualmente cursando una carrera técnica en servicios en la nube.
+                Estoy constantemente aprendiendo y creciendo.""", 
+                color = TextColor.BODY.value 
+            ),
+            spacing='5',
             align_items='start',
         )
